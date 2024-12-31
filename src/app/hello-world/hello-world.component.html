@@ -1,0 +1,28 @@
+<div class="flex-container">
+<canvas baseChart class="chart"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [type]="lineChartType"
+        style="width:900px"></canvas>
+
+</div>
+<div class="flex-container">
+
+    <table mat-table [dataSource]="currentStocks" class="mat-elevation-z8">
+
+
+        <ng-container matColumnDef="Type">
+            <th mat-header-cell *matHeaderCellDef> Type. </th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Quantity">
+            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
